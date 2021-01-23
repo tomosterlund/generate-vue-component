@@ -1,0 +1,15 @@
+{
+  "name": "vuecomp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "vuecomp.js",
+  "dependencies": {
+    "commander": "^7.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
