@@ -1,6 +1,6 @@
 # vuecomp
 ## Compiling application to an executable
-$ npm i -g pkg
+$ npm i -g pkg  
 $ pkg vuecomp.js
 
 ## Using the app
