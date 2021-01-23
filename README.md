@@ -18,6 +18,6 @@ for example "vuecomp"
 | --help   | Displays all options to the console        |
 
 ## Example
-$ Vuecomp -n Button -d -m
+$ vuecomp -n Button -d -m
 Generates a file with the Button.vue  
 which contains a vue component with data- and methods properties.
