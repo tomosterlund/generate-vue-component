@@ -19,5 +19,5 @@ for example "vuecomp"
 
 ## Example
 $ vuecomp -n Button -d -m  
-Generates a file with the Button.vue  
+Generates a file called Button.vue  
 which contains a vue component with data- and methods properties.
