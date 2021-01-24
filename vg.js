@@ -12,6 +12,7 @@ program
     .description('Create a Vue component')
     .option('-d, --data', 'Component should include data object')
     .option('-m, --methods', 'Component should include methods')
+    .option('-s, --scss', 'Component should use SCSS')
     .option('-h, --help', 'Shows all available flags')
     .action((filename, options) => {
         // const options = program.opts();

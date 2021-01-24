@@ -1,6 +1,5 @@
 # vuejs-generate
 A CLI for generating component- and module templates in Vue.js.
-Written in Node
 
 ## Install
 ```
@@ -20,6 +19,7 @@ If not, it will be created in the directory where the command is executed.
 | ----------- | ----------- |
 | -d   | Adds a data property to the component        |
 | -m   | Adds a methods property to the component        |
+| -s   | Sets style-lang attribute to SCSS        |
 | --help   | Displays all options to the console        |
 
 #### Example

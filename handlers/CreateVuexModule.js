@@ -20,11 +20,14 @@ const CreateVuexModule = async (modulename) => {
  * @param {string} modulename 
  */
 const checkIfStoreExists = async (path, modulename) => {
-    const dir = await fs.promises.opendir(path);
-    for await (const dirent of dir) {
-        if (dirent.name === 'store') {
-            let filePath = `./src/store/${modulename}.js`;
-            return filePath;
+    const srcExists = fs.existsSync(path);
+    if (srcExists) {
+        const dir = await fs.promises.opendir(path);
+        for await (const dirent of dir) {
+            if (dirent.name === 'store') {
+                let filePath = `./src/store/${modulename}.js`;
+                return filePath;
+            }
         }
     }
 }

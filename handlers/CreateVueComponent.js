@@ -1,8 +1,5 @@
 const fs = require('fs');
-const withDataTemplate = require('../templates/with-data');
-const withDataMethodsTemplate = require('../templates/with-data-methods');
-const withMethodsTemplate = require('../templates/with-methods');
-const withoutPropertiesTemplate = require('../templates/without-properties');
+const componentTemplate = require('../templates/ComponentTemplate');
 
 const CreateVueComponent = async (fileName, options) => {
     let data;
@@ -19,22 +16,8 @@ const CreateVueComponent = async (fileName, options) => {
             -m                adds a methods property
         `);
     }
-    
-    if (options.data && !options.methods) {
-        data = new Uint8Array(Buffer.from(withDataTemplate));
-    }
-    
-    if (options.data && options.methods) {
-        data = new Uint8Array(Buffer.from(withDataMethodsTemplate));
-    }
-    
-    if (options.methods && !options.data) {
-        data = new Uint8Array(Buffer.from(withMethodsTemplate));
-    }
-    
-    if (!options.methods && !options.data) {
-        data = new Uint8Array(Buffer.from(withoutPropertiesTemplate));
-    }
+
+    data = new Uint8Array(Buffer.from(componentTemplate(options.data, options.methods, options.scss)));
     
     fs.writeFile(filePath, data, err => {
         if (err) throw err;
@@ -48,11 +31,14 @@ const CreateVueComponent = async (fileName, options) => {
  * @param {string} modulename 
  */
 const checkIfComponentsDirExists = async (path, modulename) => {
-    const dir = await fs.promises.opendir(path);
-    for await (const dirent of dir) {
-        if (dirent.name === 'components') {
-            let filePath = `./src/components/${modulename}.vue`;
-            return filePath;
+    const srcExists = fs.existsSync(path);
+    if (srcExists) {
+        const dir = await fs.promises.opendir(path);
+        for await (const dirent of dir) {
+            if (dirent.name === 'components') {
+                let filePath = `./src/components/${modulename}.vue`;
+                return filePath;
+            }
         }
     }
 }
