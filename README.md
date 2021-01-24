@@ -1,10 +1,10 @@
-# Generate Vue component
+# vuejs-generate
 A CLI for generating component- and module templates in Vue.js.
 Written in Node
 
 ## Install
 ```
-npm i -g generate-vue-component
+npm i -g vuejs-generate
 ```
 
 ## Generating a Vue compoment
