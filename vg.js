@@ -3,6 +3,7 @@ const { program } = require('commander');
 program.version('0.0.1');
 const CreateVueComponent = require('./handlers/CreateVueComponent');
 const CreateVuexModule = require('./handlers/CreateVuexModule');
+const displayHelp = require('./handlers/DisplayHelp');
 
 /**
  * Handling the vg component command
@@ -13,9 +14,12 @@ program
     .option('-d, --data', 'Component should include data object')
     .option('-m, --methods', 'Component should include methods')
     .option('-s, --scss', 'Component should use SCSS')
-    .option('-h, --help', 'Shows all available flags')
+    .option('-x, --axios', 'Component should contain an axios import')
+    .option('-a, --all', 'All of the above options are added')
     .action((filename, options) => {
-        // const options = program.opts();
+        if (options.help) {
+            return displayHelp();
+        }
         CreateVueComponent(filename, options);
     });
 
@@ -28,5 +32,12 @@ program
     .action(modulename => {
         CreateVuexModule(modulename);
     });
+
+program
+    .command('help')
+    .description('Displays all available commands and their flags')
+    .action(() => {
+        displayHelp();
+    })
 
 program.parse(process.argv);

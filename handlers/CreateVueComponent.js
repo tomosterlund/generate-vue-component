@@ -2,22 +2,18 @@ const fs = require('fs');
 const componentTemplate = require('../templates/ComponentTemplate');
 
 const CreateVueComponent = async (fileName, options) => {
-    if (options.help) {
-        return console.log(`The following flags are available:
-            -d                adds a data property to the component
-            -m                adds a methods property
-            -s                sets the style-lang attribute to SCSS
-        `);
-    }
-
-    let data;
     let filePath = `${fileName}.vue`;
     const filePathInComponentsDir = await returnFilePathInComponentsDir(fileName);
     if (filePathInComponentsDir) {
         filePath = filePathInComponentsDir;
     }
-
-    data = new Uint8Array(Buffer.from(componentTemplate(options.data, options.methods, options.scss)));
+    
+    let data;
+    if (!options.all) {
+        data = new Uint8Array(Buffer.from(componentTemplate(options.data, options.methods, options.scss, options.axios)));
+    } else {
+        data = new Uint8Array(Buffer.from(componentTemplate(true, true, true, true)));
+    }
     
     fs.writeFile(filePath, data, err => {
         if (err) throw err;
