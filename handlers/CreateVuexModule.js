@@ -2,14 +2,11 @@ const fs = require('fs');
 const vuexModuleTemplate = require('../templates/vuex-module');
 
 const CreateVuexModule = async (modulename) => {
-
     let filePath = `${modulename}.js`;
-
     const filePathInStore = await checkIfStoreExists('./src', modulename);
     if (filePathInStore) {
         filePath = filePathInStore;
     }
-
     const moduleCode = vuexModuleTemplate(modulename);
     fs.writeFile(filePath, moduleCode, err => {
         if (err) throw err;

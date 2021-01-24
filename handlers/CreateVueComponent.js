@@ -5,10 +5,10 @@ const withMethodsTemplate = require('../templates/with-methods');
 const withoutPropertiesTemplate = require('../templates/without-properties');
 
 const CreateVueComponent = async (fileName, options) => {
-    
     let data;
     let filePath = `${fileName}.vue`;
     const filePathInComponentsDir = await checkIfComponentsDirExists('./src', fileName);
+    
     if (filePathInComponentsDir) {
         filePath = filePathInComponentsDir;
     }
@@ -19,7 +19,6 @@ const CreateVueComponent = async (fileName, options) => {
             -m                adds a methods property
         `);
     }
-
     
     if (options.data && !options.methods) {
         data = new Uint8Array(Buffer.from(withDataTemplate));
