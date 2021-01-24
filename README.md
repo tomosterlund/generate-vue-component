@@ -11,7 +11,7 @@ npm i -g vuejs-generate
 $ vg component <name>
 ```
 
-If an **src/components** directory exists, the component will be created there.  
+If an **./src/components** or **./components** directory exists, the component will be created there.  
 If not, it will be created in the directory where the command is executed.
 
 #### Component flags
@@ -33,7 +33,7 @@ Generates a file called Button.vue which contains a vue component with data- and
 $ vg vuexmod <modulename>
 ```
 
-If an **src/store** directory exists, the module will be created there.  
+If an **./src/store** or **./store** directory exists, the module will be created there.  
 If not, it will be created in the directory where the command is executed.
 
 #### Example
