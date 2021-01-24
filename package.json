@@ -2,7 +2,7 @@
   "name": "vuecomp",
   "version": "1.0.0",
   "description": "",
-  "main": "vuecomp.js",
+  "main": "vg.js",
   "dependencies": {
     "commander": "^7.0.0"
   },
