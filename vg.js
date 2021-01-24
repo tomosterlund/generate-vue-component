@@ -3,6 +3,7 @@ const { program } = require('commander');
 program.version('0.0.1');
 const CreateVueComponent = require('./handlers/CreateVueComponent');
 const CreateVuexModule = require('./handlers/CreateVuexModule');
+const CreateVuexStore = require('./handlers/CreateVuexStore');
 const displayHelp = require('./handlers/DisplayHelp');
 
 /**
@@ -33,11 +34,21 @@ program
         CreateVuexModule(modulename);
     });
 
+/**
+ * Handling the vg store command
+ */
+program
+    .command('store')
+    .description('Sets up a Vuex store, using the Vuex modules structure')
+    .action(() => {
+        CreateVuexStore();
+    })
+
 program
     .command('help')
     .description('Displays all available commands and their flags')
     .action(() => {
         displayHelp();
-    })
+    });
 
 program.parse(process.argv);

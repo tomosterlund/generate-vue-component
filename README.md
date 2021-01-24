@@ -4,21 +4,21 @@ A CLI for generating component- and module templates in Vue.js.
 ## List of content
 1. [Install](#install)
 2. [Usage](#usage)
-    * [Generating Vue components](#components)
-    * [Generating Vuex modules](#vuexmod)
+    * [Generating Vue components](#generating-a-vue-compoment)
+    * [Generating Vuex modules](#generating-vuex-modules)
 
-## Install <a name="install"></a>
+## Install
 ```
 npm i -g vuejs-generate
 ```
 
-## Usage <a name="usage"></a>
+## Usage
 Display all commands in terminal with:
 ```
 $ vg help
 ```
 
-### Generating a Vue compoment <a name="components"></a>
+### Generating a Vue compoment
 ```
 $ vg component <name>
 ```
@@ -29,8 +29,9 @@ If not, it will be created in the directory where the command is executed.
 #### Component flags
 | Flag name      | Description |
 | ----------- | ----------- |
-| -d   | Adds a data property to the component        |
-| -m   | Adds a methods property to the component        |
+| -d   | Adds a data property      |
+| -m   | Adds a methods property       |
+| -x   | Adds an Axios import        |
 | -s   | Sets style-lang attribute to SCSS        |
 | -a   | Adds all of the options above        |
 
@@ -40,7 +41,7 @@ $ vg component Button -d -m
 ```
 Generates a file called Button.vue which contains a vue component with data- and methods properties.
 
-### Generating a Vuex module <a name="vuexmod"></a>
+### Generating Vuex modules
 ```
 $ vg vuexmod <modulename>
 ```

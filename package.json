@@ -7,21 +7,22 @@
     "vg": "vg.js"
   },
   "dependencies": {
-    "commander": "^7.0.0"
+    "commander": "^7.0.0",
+    "inquirer": "^7.3.3"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-      "vue.js",
-      "components",
-      "modules"
+    "vue.js",
+    "components",
+    "modules"
   ],
   "author": "Tom Österlund",
   "license": "ISC",
   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/tomosterlund/generate-vue-component"
+    "type": "git",
+    "url": "git+https://github.com/tomosterlund/generate-vue-component"
   }
 }
