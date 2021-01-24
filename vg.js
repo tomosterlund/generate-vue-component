@@ -1,10 +1,11 @@
+#!/usr/bin/env node
 const { program } = require('commander');
 program.version('0.0.1');
 const CreateVueComponent = require('./handlers/CreateVueComponent');
 const CreateVuexModule = require('./handlers/CreateVuexModule');
 
 /**
- * Handling the vgen component command
+ * Handling the vg component command
  */
 program
     .command('component <filename>')
@@ -18,7 +19,7 @@ program
     });
 
 /**
- * Handling the vgen vuexmod command
+ * Handling the vg vuexmod command
  */
 program
     .command('vuexmod <modulename>')

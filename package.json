@@ -1,8 +1,9 @@
 {
-  "name": "vuecomp",
+  "name": "generate-vue-component",
   "version": "1.0.0",
-  "description": "",
+  "description": "A CLI for generating component- and module templates in Vue.js",
   "main": "vg.js",
+  "bin": "vg.js",
   "dependencies": {
     "commander": "^7.0.0"
   },
@@ -10,6 +11,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+      "vue.js",
+      "components",
+      "modules"
+  ],
+  "author": "Tom Österlund",
+  "license": "ISC",
+  "repository": {
+      "type": "git",
+      "url": "git+https://github.com/tomosterlund/generate-vue-component"
+  }
 }
