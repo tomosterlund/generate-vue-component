@@ -1,5 +1,5 @@
-const vuexModuleTemplate = (moduleName) => {
-    const template = `const ${moduleName} = {
+const vuexModuleTemplate = () => {
+    const template = `export default {
     state: () => ({
 
     }),
@@ -13,8 +13,6 @@ const vuexModuleTemplate = (moduleName) => {
 
     }
 }
-
-export default ${moduleName};
 `
 
     return template;

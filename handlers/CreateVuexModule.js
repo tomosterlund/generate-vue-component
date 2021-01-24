@@ -3,7 +3,7 @@ const vuexModuleTemplate = require('../templates/vuex-module');
 
 const CreateVuexModule = async (modulename) => {
     const filePath = await returnFilePathInStoreDir(modulename);
-    const moduleCode = vuexModuleTemplate(modulename);
+    const moduleCode = vuexModuleTemplate();
     fs.writeFile(filePath, moduleCode, err => {
         if (err) throw err;
         console.log(`${modulename} was created in Vuex-store`);
