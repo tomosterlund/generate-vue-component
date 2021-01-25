@@ -2,7 +2,7 @@
 const { program } = require('commander');
 program.version('0.0.1');
 const CreateVueComponent = require('./handlers/CreateVueComponent');
-const CreateVuexModule = require('./handlers/CreateVuexModule');
+const { CreateVuexModule } = require('./handlers/CreateVuexModule');
 const CreateVuexStore = require('./handlers/CreateVuexStore');
 const displayHelp = require('./handlers/DisplayHelp');
 
@@ -40,10 +40,15 @@ program
 program
     .command('store')
     .description('Sets up a Vuex store, using the Vuex modules structure')
-    .action(() => {
-        CreateVuexStore();
+    .option('-m, --module <name>', 'Lets the user enter name of a first module')
+    .action((options) => {
+        let modulename = options.module;
+        CreateVuexStore(modulename);
     })
 
+/**
+ * Handling the vg help command
+ */
 program
     .command('help')
     .description('Displays all available commands and their flags')

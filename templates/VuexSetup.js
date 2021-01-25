@@ -1,14 +1,18 @@
-const VuexSetupTemplate = `import Vue from 'vue'
-import Vuex from 'vuex'
+const setVuexSetupTemplate = (moduleToImport) => {
+    const VuexSetupTemplate = `import Vue from 'vue'
+import Vuex from 'vuex'\n${moduleToImport ? `import ${moduleToImport} from './${moduleToImport}'\n` : ''}
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
     modules: {
-        sampleModule: myModule
+        ${moduleToImport}
     }
 })
 
 export default store;
 `
+    return VuexSetupTemplate;
+}
 
-module.exports = VuexSetupTemplate;
+
+module.exports = setVuexSetupTemplate;

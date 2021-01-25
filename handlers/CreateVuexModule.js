@@ -1,13 +1,9 @@
 const fs = require('fs');
 const vuexModuleTemplate = require('../templates/vuex-module');
 
-const CreateVuexModule = async (modulename) => {
+exports.CreateVuexModule = async (modulename) => {
     const filePath = await returnFilePathInStoreDir(modulename);
-    const moduleCode = vuexModuleTemplate();
-    fs.writeFile(filePath, moduleCode, err => {
-        if (err) throw err;
-        console.log(`${modulename} was created in Vuex-store`);
-    });
+    writeToFile(filePath, modulename)
 }
 
 /**
@@ -47,4 +43,15 @@ const checkIfStoreExists = async (path, newFilePath, modulename) => {
     }
 }
 
-module.exports = CreateVuexModule;
+/**
+ * Creating and writing to a JS file
+ * @param {string} filePath 
+ * @param {string} modulename 
+ */
+exports.writeToFile = async (filePath, modulename) => {
+    const moduleCode = vuexModuleTemplate();
+    fs.writeFile(filePath, moduleCode, err => {
+        if (err) throw err;
+        console.log(`${modulename} was created in Vuex-store`);
+    });
+}
