@@ -9,11 +9,7 @@ const CreateVuexStore = async (firstModuleName) => {
 
     const srcExists = fs.existsSync('./src');
     if (srcExists) {
-        let data = new Uint8Array(Buffer.from(VuexSetupTemplate(firstModuleName || 'myModule')));
-        fs.mkdirSync('./src/store');
-        fs.writeFileSync('./src/store/index.js', data);
-        console.log('\nVuex store was created')
-        await writeToFile(`./src/store/${firstModuleName || 'myModule'}.js`, `${firstModuleName || 'myModule'}`);
+        await writeToFiles('./src/store', firstModuleName);
     } else {
         await writeToFiles('./store', firstModuleName);
     }
@@ -65,8 +61,9 @@ const writeToFiles = async (filePathSuffix, firstModuleName) => {
     let data = new Uint8Array(Buffer.from(VuexSetupTemplate(firstModuleName || 'myModule')));
     fs.mkdirSync(`${filePathSuffix}`);
     fs.writeFileSync(`${filePathSuffix}/index.js`, data);
-    console.log('\nVuex store was created');
-    console.log('\x1b[33m%s\x1b[0m', 'Don\'t forget to import it on your Vue instance');
+    console.log(`
+        \nVuex store was created - \x1b[33mDon\'t forget to import it on your Vue instance\x1b[0m`
+    );
     await writeToFile(`${filePathSuffix}/${firstModuleName || 'myModule'}.js`, `${firstModuleName || 'myModule'}`);
 }
 
