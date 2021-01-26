@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const { program } = require('commander');
+const CreateUnitTest = require('./handlers/CreateUnitTest');
 program.version('0.0.1');
 const CreateVueComponent = require('./handlers/CreateVueComponent');
 const { CreateVuexModule } = require('./handlers/CreateVuexModule');
@@ -44,6 +45,13 @@ program
     .action((options) => {
         let modulename = options.module;
         CreateVuexStore(modulename);
+    });
+
+program
+    .command('test <unitname>')
+    .description('Sets up a spec file, with the given name, in the tests folder')
+    .action(unitname => {
+        CreateUnitTest(unitname);
     })
 
 /**

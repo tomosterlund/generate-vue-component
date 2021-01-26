@@ -16,6 +16,9 @@ const displayHelp = () => {
     console.log('')
     console.log('Generate a Vuex module:');
     console.log('\x1b[33m%s\x1b[0m', '$ vg vuexmod <modulename>');
+    console.log('')
+    console.log('Generate a unit test for Vue test utils & jest:');
+    console.log('\x1b[33m%s\x1b[0m', '$ vg test <name>');
 }
 
 module.exports = displayHelp;

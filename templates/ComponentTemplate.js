@@ -8,7 +8,7 @@ const dataPropertyTemplate = `data() {
 
 const methodPropertyTemplate = `methods: {
 
-    }\n`;
+    }`;
 
 const axiosTemplate = `\nimport axios from 'axios'\n`;
 
@@ -26,7 +26,7 @@ const ComponentTemplateWith = (dataProp, methodsProp, SCSS, axios) => {
 
 <script>${axios ? axiosTemplate : ''}
 export default {
-    ${dataProp ? dataPropertyTemplate : ''}${methodsProp ? methodPropertyTemplate : ''}
+    ${dataProp ? dataPropertyTemplate : ''}    ${methodsProp ? methodPropertyTemplate : ''}
 }
 </script>
 

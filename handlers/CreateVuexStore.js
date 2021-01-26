@@ -54,17 +54,17 @@ const allowUserToCancel = async () => {
 
 /**
  * Writing to the files of the store
- * @param {string} filePathSuffix 
+ * @param {string} filePathPrefix 
  * @param {string} firstModuleName 
  */
-const writeToFiles = async (filePathSuffix, firstModuleName) => {
+const writeToFiles = async (filePathPrefix, firstModuleName) => {
     let data = new Uint8Array(Buffer.from(VuexSetupTemplate(firstModuleName || 'myModule')));
-    fs.mkdirSync(`${filePathSuffix}`);
-    fs.writeFileSync(`${filePathSuffix}/index.js`, data);
+    fs.mkdirSync(`${filePathPrefix}`);
+    fs.writeFileSync(`${filePathPrefix}/index.js`, data);
     console.log(`
         \nVuex store was created - \x1b[33mDon\'t forget to import it on your Vue instance\x1b[0m`
     );
-    await writeToFile(`${filePathSuffix}/${firstModuleName || 'myModule'}.js`, `${firstModuleName || 'myModule'}`);
+    await writeToFile(`${filePathPrefix}/${firstModuleName || 'myModule'}.js`, `${firstModuleName || 'myModule'}`);
 }
 
 module.exports = CreateVuexStore;
