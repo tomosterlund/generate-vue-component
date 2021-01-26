@@ -1,6 +1,6 @@
 {
   "name": "vuejs-generate",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A CLI for generating component- and module templates in Vue.js",
   "main": "vg.js",
   "bin": {
