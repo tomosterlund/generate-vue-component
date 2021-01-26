@@ -1,5 +1,6 @@
 const fs = require('fs');
 const componentTemplate = require('../templates/ComponentTemplate');
+const CreateUnitTest = require('./CreateUnitTest');
 
 const CreateVueComponent = async (fileName, options) => {
     let filePath = `${fileName}.vue`;
@@ -14,11 +15,13 @@ const CreateVueComponent = async (fileName, options) => {
     } else {
         data = new Uint8Array(Buffer.from(componentTemplate(true, true, true, true)));
     }
-    
     fs.writeFile(filePath, data, err => {
         if (err) throw err;
         console.log(`${fileName} component was created`);
     });
+    if (options.test) {
+        CreateUnitTest(fileName);
+    }
 }
 
 /**

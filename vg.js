@@ -18,6 +18,7 @@ program
     .option('-s, --scss', 'Component should use SCSS')
     .option('-x, --axios', 'Component should contain an axios import')
     .option('-a, --all', 'All of the above options are added')
+    .option('-t, --test', 'Create a unit test for your component')
     .action((filename, options) => {
         if (options.help) {
             return displayHelp();
@@ -49,7 +50,7 @@ program
 
 program
     .command('test <unitname>')
-    .description('Sets up a spec file, with the given name, in the tests folder')
+    .description('Sets up a unitname.spec.js file in the tests folder')
     .action(unitname => {
         CreateUnitTest(unitname);
     })

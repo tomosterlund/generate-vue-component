@@ -20,8 +20,8 @@ const writeToTestFile = (dir, testName, data) => {
     fs.writeFile(`${dir}/${testName}.spec.js`, data, (err) =>{
         if (err) throw err;
     });
-    console.log(`${testName}.spec.js was created`);
-    console.log('\x1b[33m%s\x1b[0m', 'Don\'t forget to finish importing the component');
+    console.log(`\n${testName}.spec.js was created`);
+    console.log('\x1b[33m%s\x1b[0m', 'Don\'t forget to finish importing the component\n');
 }
 
 module.exports = CreateUnitTest;
