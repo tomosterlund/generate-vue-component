@@ -36,7 +36,7 @@ If not, it will be created in the directory where the command is executed.
 | -x   | Adds an Axios import        |
 | -s   | Sets style-lang attribute to SCSS        |
 | -a   | Adds all of the options above        |
-| -t   | Sets up a unit test for the component, in <name>.spec.js        |
+| -t   | Sets up a unit test for the component, in \<name\>.spec.js        |
 
 #### Example
 ```
